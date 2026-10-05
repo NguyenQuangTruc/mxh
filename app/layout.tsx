@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Header from "./Components/Layouts/Header";
+import Banner from "./Components/Layouts/Banner"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -22,8 +24,37 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
     <html
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.3.1/css/all.css"
+          integrity="sha512-x9WwyMYBnlXMNQ6kQ/Lyzu1NqIhLQKL5Oq6xByfXuRj7s9CskyCbLv/1IjqzJmXwFXWr0ov6jBV7Qbc0hh9nHg=="
+          crossOrigin="anonymous" referrerPolicy="no-referrer"></link>
+      </head>
+      <body className="min-h-full flex flex-col bg-amber-50">
+        <Header />
+        <div className="grid grid-cols-1 p-5 pl-5 pr-5 md:pl-20 md:pr-20 lg:grid-cols-12 lg:gap-5 xl:pl-20 xl:pr-20 xl:gap-30">
+          <div className="hidden lg:gap-y-15 lg:block lg:col-span-3">
+            <div className=" sticky top-20 grid gap-y-5">
+              <Banner />
+              <Banner />
+            </div>
+
+          </div>
+          <div className=" lg:col-span-6">
+            {children}
+          </div>
+
+          <div className="hidden lg:gap-y-15 lg:block lg:col-span-3">
+            <div className=" sticky top-20 grid gap-y-5">
+              <Banner />
+              <Banner />
+            </div>
+
+          </div>
+        </div>
+
+      </body>
     </html>
   );
 }
