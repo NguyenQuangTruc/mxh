@@ -2,7 +2,6 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Header from "./Components/Layouts/Header";
-import Banner from "./Components/Layouts/Banner"
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,17 +32,7 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       </head>
       <body className="min-h-full flex flex-col">
         <Header />
-        <div className="mx-auto grid w-full max-w-[1320px] flex-1 grid-cols-1 gap-6 px-4 py-6 sm:px-6 md:py-8 lg:grid-cols-[250px_minmax(0,700px)] lg:gap-8 xl:gap-10">
-          <aside className="hidden lg:block">
-            <div className="sticky top-24">
-              <Banner />
-            </div>
-          </aside>
-          <main className="min-w-0">
-            {children}
-          </main>
-        </div>
-
+        {children}
       </body>
     </html>
   );
