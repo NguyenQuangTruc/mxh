@@ -7,6 +7,7 @@ const axiosClient = axios.create({
     'Content-Type': 'application/json',
   },
   timeout: 10000, // Hủy request nếu quá 10 giây
+  withCredentials: true,
 });
 
 export default axiosClient;
